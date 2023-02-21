@@ -5,7 +5,13 @@ import { useState } from 'react';
 
 function App() {
 
-    return ShoppingList();
+    return (
+
+        <div>
+            <ShoppingList/>
+            Laver kurv her?
+        </div>
+    );
 
 }
 
@@ -41,6 +47,10 @@ function ShoppingList() {
     return (
         <ul>{listItems}</ul>
     );
+}
+
+function ShoppingCart() {
+
 }
 
 export default App;
