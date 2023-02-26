@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+.products {
+  text-align: start;
+  padding: 20px;
+  font-size: 15px;
+}
+
+.kurv {
+  padding: 20px;
+  text-align: center;
+  font-size: 30px;
+}
+
+.col-1 {
+  text-decoration: underline;
+}
+.købknap {
+  font-size: 11px;
+}

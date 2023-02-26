@@ -1,61 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import { Navbar } from "./components/navbar"
+import {Shop} from './pages/shop/shop'
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
+
 
 function App() {
-
-    return (
-
-        <div>
-            <ShoppingList/>
-            Laver kurv her?
-        </div>
-    );
-
-}
-
-function MyButton() {
-    const [count, setCount] = useState(0);
-
-    function handleClick() {
-        setCount(count + 1);
-    }
-
-    return (
-        <button onClick={handleClick}>
-            Amount: {count}
-        </button>
-    );
-}
-
-function ShoppingList() {
-
-    const listItems = products.map(product =>
-        <li
-            key={product.id}
-            style={{
-                color: product.rebatePercent < 20 ? 'black' : 'darkgreen'
-            }}
-        >
-            {product.name},
-            {' '}{product.price}{product.currency}
-            {' '}<MyButton/>
-        </li>
-    );
-
-    return (
-        <ul>{listItems}</ul>
-    );
-}
-
-function ShoppingCart() {
-
-}
-
-export default App;
-
-const products = [
+    const [products] = useState([
         {
             id: "vitamin-d-90-100",
             name: "D-vitamin, 90ug, 100 stk",
@@ -317,4 +270,79 @@ const products = [
             rebatePercent: 10,
             upsellProductId: null
         }
-    ];
+    ]);
+
+
+
+    return (
+        <div className="App">
+            <h1>Butik</h1>
+            <div className="products">
+                {products.map(product => (
+                    <div>
+                        {product.name}
+                        {' '}{product.price} {product.currency}
+                        {' '}<button className="købknap">Køb</button>
+                    </div>
+                ))}
+            </div>
+
+            <div className="kurv">
+                <div className="row">
+                    <div className="col-1">
+                        Kurv
+                    </div>
+                    <div className="col">
+                        Pris
+                    </div>
+                    <div className="col">
+                        Stk
+                    </div>
+                    <div className="col">
+                        Beløb
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    );
+}
+
+export default App;
+
+/*function MyButton() {
+    const [count, setCount] = useState(0);
+
+    function handleClick() {
+        setCount(c => c + 1);
+    }
+
+    return (
+        <button onClick={handleClick}>
+            Amount: {count}
+        </button>
+    );
+}
+
+function ShoppingList() {
+
+    const listItems = products.map(product =>
+        <li
+            key={product.id}
+            style={{
+                color: product.rebatePercent < 20 ? 'black' : 'darkgreen'
+            }}
+        >
+            {product.name},
+            {' '}{product.price}{product.currency}
+            {' '}<MyButton/>
+        </li>
+    );
+
+    return (
+        <article>
+            <h1>Shopping List</h1>
+            <ul>{listItems}</ul>
+        </article>
+    );
+}*/
